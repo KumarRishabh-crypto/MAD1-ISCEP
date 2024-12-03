@@ -39,12 +39,14 @@ The project uses the MVC (Model-View-Controller) architecture:
 - **Models**: Represent the database tables.
 
 ### Key Features
+
 **1. The flask app** opens at the main page. Where person can
 i.User login: username and password are required fields in form. User should exist in the database or he/she can register himself/herself.
 ii.Admin login: username and password are required fields in form. Admin cannot register, id is created at the start itself.
 iii.Register user: first name, username and password are required in form.
 Username should not exist in the database.
 If incorrect password or username is given a prompt is displayed invalid credentials.
+
 **2. Users**
 a. Sponsor:
 ● Can login and create campaigns, update it, delete campaigns.
