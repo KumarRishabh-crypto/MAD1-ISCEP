@@ -11,7 +11,7 @@ The system also includes an admin panel for managing campaigns and user roles.
 
 ## Screenshots
 
-![Screenshot 2024-06-24 133100](https://github.com/user-attachments/assets/c65d3037-3741-40d7-989a-eb9f6c350cad)
+[![Screenshot 2024-12-03 20224525](https://github.com/KumarRishabh-crypto/MAD1-ISCEP/blob/main/Screenshot%202024-12-03%20224525.png)
 
 ## Technologies Used
 
