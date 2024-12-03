@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard</title>
+    <link rel="stylesheet" href="/static/styladm camp.css">
+    <script src="https://kit.fontawesome.com/b99e675b6e.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <div class="sidebar">
+        <h1>InfluenceSync
+              Admin</h1>
+        <ul>
+            <li><a href="{{url_for('admin_dashboard')}}"><i class="fas fa-home"></i>Profile</a></li>
+            <li><a href="{{url_for('admin_manage')}}"><i class="fas fa-address-card"></i>Manage users</a></li>
+            <li><a href="{{url_for('admin_campaign')}}"><i class="fas fa-clipboard"></i>Campaigns</a></li>
+            <li><a href="/logout" class="logout"><i class="fas fa-lock"></i>Logout</a></li>
+        </ul>
+    </div>
+    <div class="main-content">
+        <header>
+            <h2>Campaigns
+            </h2>
+        <table>
+                <thead>
+                    {% if detail == [] %}
+                    <tr><th>No any active campaigns.</th></tr>
+                    {% else %}
+                    <tr>
+                        <th>Campaign ID</th>
+                        <th>Sponsor ID</th>
+                        <th>Sponsor Name</th>
+                        <th>Campaign Name</th>
+                        <th>Category</th>
+                        <th>Start Date</th>
+                        <th>End Date</th>
+                        <th>Budget</th>
+                        <th>Influencers</th>
+                        <th>Action</th>
+                    </tr>
+                    {% endif %}
+                </thead>
+                <tbody>
+                    {% for influ, spon, camp in detail %}
+                    <tr>
+                        <td>{{camp.campain_id}}</td>
+                        <td>{{spon.user_id}}</td>
+                        <td>{{spon.username}}</td>
+                        <td>{{camp.name}}</td>
+                        <td>{{camp.category}}</td>
+                        <td>{{camp.sdate}}</td>
+                        <td>{{camp.edate}}l</td>
+                        <td>{{camp.budget}}</td>
+                        <td>{{influ.username}}</td>
+                        <td><button class="delete-btn"><a href="{{url_for('admin_delete_campaign',camp_id = camp.campain_id,inf_id = influ.user_id)}}">🗑️</a></button></td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+        </table>    
+        </header>
+</div>
+</body>
+</html>            

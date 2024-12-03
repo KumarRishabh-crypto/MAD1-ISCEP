@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>InfluenceSync</title>
+    <link rel="stylesheet" href="/static/stylelogin.css">
+</head>
+<body>
+    <div class="container">
+        <div class="left-section">
+            <h1>InfluenceSync</h1>
+            <p>Connecting Brands with Influencers!</p>
+            <p>Effortlessly Linking Brands with Influencers for Impactful Collaborations and Successful Campaigns."</p>
+        </div>
+        <div class="right-section">
+            <h2>Login</h2>
+
+            {% with messages = get_flashed_messages() %}
+                {% if messages %}
+                        {% for message in messages %}
+                            <h4 id="denied">{{ message }}</h4>
+                        {% endfor %}
+                {% endif %}
+            {% endwith %}
+
+            <form action="/login" method="post">
+                <div class="user-role">
+                    <label for="role">I am a:</label>
+                    <select id="role" name="role">
+                        <option value="influencer">Influencer</option>
+                        <option value="sponsor">Sponsor</option>
+                        <option value="admin">Admin</option>
+                    </select>
+                </div>
+                <input type="text" name="username" placeholder="Username">
+                <input type="password" name="password" placeholder="Password">
+                <button type="submit">Submit</button>
+                <p class="signup-link"> Sponser: <a href="{{url_for('sponsor_registration')}}">Sponser Registration</a></p>
+                <p class="signup-link"> Influencer: <a href="{{url_for('influencer_registration')}}">Influencer Registration</a></p>
+            </form>
+        </div>
+    </div>
+</body>
+</html>

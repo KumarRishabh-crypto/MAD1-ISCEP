@@ -1,0 +1,121 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Arial', sans-serif;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-image: url("/static/images/hero-bg.jpg");
+    padding: 30px;
+}
+
+.container {
+    display: flex;
+    width: 800px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+}
+
+.left, .right {
+    width: 50%;
+}
+
+.left .image-container {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+.left img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.left .text-overlay {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    color: white;
+}
+
+.left .text-overlay h1 {
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+.left .text-overlay p {
+    font-size: 16px;
+}
+
+.right {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: white;
+}
+
+.signup-form {
+    width: 80%;
+}
+
+.signup-form h2 {
+    margin-bottom: 20px;
+    color: #6A1B9A;
+    text-align: center;
+}
+
+.signup-form label {
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+.signup-form label i {
+    margin-right: 10px;
+    color: #6A1B9A;
+}
+
+.signup-form input {
+    width: 100%;
+    border: none;
+    outline: none;
+}
+
+.signup-form button {
+    width: 100%;
+    padding: 10px;
+    background-color: #6A1B9A;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.signup-form button:hover {
+    background-color: #8E24AA;
+}
+
+.signup-form p {
+    text-align: center;
+    margin-top: 10px;
+}
+
+.signup-form p a {
+    color: #6A1B9A;
+    text-decoration: none;
+}
+
+.signup-form p a:hover {
+    text-decoration: underline;
+}

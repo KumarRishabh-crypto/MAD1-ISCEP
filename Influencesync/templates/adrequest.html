@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Influencer Dashboard</title>
+    <link rel="stylesheet" href="/static/styleadrequ.css">
+    <script src="https://kit.fontawesome.com/b99e675b6e.js"></script>
+</head>
+<body>
+<div class="wrapper">
+    <div class="sidebar">
+        <h1>InfluenceSync
+            Influencer</h1>
+        <ul>
+            <li><a href="/influencer_dashboard"><i class="fas fa-home"></i>Home</a></li>
+            <li><a href="#"><i class="fas fa-address-card"></i>Update Profile</a></li>
+            <li><a href="/ad_request"><i class="fas fa-audio-description"></i>Ad Requests</a></li>
+            <li><a href="/search_campaign"><i class="fas fa-search-plus"></i>Search Campaigns</a></li>
+            <li><a href="/logout"><i class="fas fa-lock"></i>Logout</a></li>
+        </ul>
+    </div>
+    <div class="main-content">
+            <section class="search-campaigns">
+                <h2>Ad Requests</h2>
+                {% if request_list != [] %}
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Campaign</th>
+                            <th>Sponsor Name</th>
+                            <th>Budget</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for camp,spon in request_list %}
+                        <tr>
+                            <td>{{camp.name}}</td>
+                            <td>{{spon.username}}</td>
+                            <td>{{camp.budget}}</td>
+                            <td>
+                                <button class="accept-request-button"><a href="{{url_for('influencer_accept',camp_id=camp.campain_id)}}">Accept Request</a></button>
+                                <button class="reject-request-button">Reject Request</button>
+                            </td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+                {% else %}
+                <h3>
+                    You Don't Have Any Request.
+                </h3>
+                {% endif %}
+            </section>
+    </div>
+</div>
+</body>
+</html>
+            

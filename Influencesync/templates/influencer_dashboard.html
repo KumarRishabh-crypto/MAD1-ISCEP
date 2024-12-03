@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Influencer Dashboard</title>
+	<link rel="stylesheet" href="/static/styleinf_dash.css">
+	<script src="https://kit.fontawesome.com/b99e675b6e.js"></script>
+</head>
+<body>
+
+<div class="wrapper">
+    <div class="sidebar">
+        <h2>InfluenceSync
+            Influencer</h2>
+        <ul>
+            <li><a href="/influencer_dashboard"><i class="fas fa-home"></i>Home</a></li>
+            <li><a href="{{url_for('update_profile')}}"><i class="fas fa-address-card"></i>Update Profile</a></li>
+            <li><a href="/search_campaign"><i class="fas fa-search-plus"></i>Search Campaigns</a></li>
+            <li><a href="/logout"><i class="fas fa-lock"></i>Logout</a></li>
+        </ul> 
+    </div>
+    <div class="container">
+     <div class="main-content">
+            <h2>Welcome, Influencer</h2>
+        <section class="profile-overview">
+            <h3>Profile Overview</h3>
+            <div class="profile-item">
+               <p class="label"><strong>Userame:</strong></p>
+               <p class="value">{{current_user.username}}</p>
+            </div>
+            <div class="profile-item">
+               <p class="label"><strong>Email:</strong></p>
+               <p class="value">{{info_detail.email}}</p>
+            </div>
+            <div class="profile-item">
+               <p class="label"><strong>Reach:</strong></p>
+               <p class="value">{{info_detail.reach}}</p>
+            </div>
+            <div class="profile-item">
+              <p class="label"><strong>Category:</strong></p>
+              <p class="value">{{info_detail.category}}</p>
+            </div>
+            <div class="profile-item">
+               <p class="label"><strong>Niche:</strong></p>
+               <p class="value">{{info_detail.niche}}</p>
+            </div>  
+        </section>
+        <section class="campaigns">
+            <h3>Your campaigns</h3>
+            <table>
+                <thead>
+                    {% if your_camp == [] %}
+                        <tr><th>No Active Campaigns.</th></tr>
+                    {% else %}
+                    <tr>
+                        <th>Campaign Name</th>
+                        <th>Budget</th>
+                        <th>End Date</th>
+                    </tr>
+                    {% endif %}
+                </thead>
+                <tbody>
+                    {% for accept in your_camp %}
+                    <tr>
+                        <td>{{accept.name}}</td>
+                        <td>{{accept.budget}}</td>
+                        <td>{{accept.edate}}</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </section>
+        <section class="campaigns">
+            <h3>New Requests</h3>
+            <table>
+                <thead>
+                    {% if new_request == [] %}
+                        <tr><th>No requests.</th></tr>
+                    {% else %}
+                    <tr>
+                        <th>Campaign Name</th>
+                        <th>Brand</th>
+                        <th>Budget</th>
+                        <th>Ends On</th>
+                        <th>Action</th>
+                    </tr>
+                    {% endif %}
+                </thead>
+                <tbody>
+                    {% for camp,spon in new_request %}
+                    <tr>
+                        <td>{{camp.name}}</td>
+                        <td>{{spon.brand}}</td>
+                        <td>{{camp.budget}}</td>
+                        <td>{{camp.edate}}</td>
+                        <td><a href="{{url_for('influencer_reject',camp_id = camp.campain_id)}}">Reject </a>||<a href="{{url_for('influencer_accept',camp_id = camp.campain_id)}}"> Accept</a></td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </section>
+        <section class="campaigns">
+            <h3>Requested campaigns</h3>
+            <table>
+                <thead>
+                    {% if request_list == [] %}
+                        <tr><th>You no requested to any campaign.</th></tr>
+                    {% else %}
+                    <tr>
+                        <th>Campaign Name</th>
+                        <th>Action</th>
+                    </tr>
+                    {% endif %}
+                </thead>
+                <tbody>
+                    {% for request in request_list %}
+                    <tr>
+                       <td>{{request.name}}</td>
+                       <td><a href="{{url_for('influencer_cancel_request',camp_id=request.campain_id)}}">Cancel Request</a></td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </section>
+    </main>
+</div>
+</div>
+</body>
+</html>

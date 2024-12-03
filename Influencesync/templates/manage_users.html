@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard</title>
+    <link rel="stylesheet" href="/static/stylemanageuser.css">
+    <script src="https://kit.fontawesome.com/b99e675b6e.js"></script>
+</head>
+<body>
+    <div class="sidebar">
+        <h1>InfluenceSync
+              Admin</h1>
+        <ul>
+            <li><a href="{{url_for('admin_dashboard')}}"><i class="fas fa-home"></i>Profile</a></li>
+            <li><a href="{{url_for('admin_manage')}}"><i class="fas fa-address-card"></i>Manage users</a></li>
+            <li><a href="{{url_for('admin_campaign')}}"><i class="fas fa-clipboard"></i>Campaigns</a></li>
+            <li><a href="/logout" class="logout"><i class="fas fa-lock"></i>Logout</a></li>
+        </ul>
+    </div>
+    <div class="main-content">
+            <header>
+                <h2>Manage users</h2>
+                <p>Total Users are: {{users}}</p>
+            </header>
+            <section class="user-table">
+                <table>
+                    <thead>
+                        {% if users_list==[] %}
+                        <tr><th>No any other user than admin!</th></tr>
+                        {% else %}
+                        <tr>
+                            <th>ID</th>
+                            <th>Username</th>
+                            <th>Email</th>
+                            <th>Role</th>
+                            <th>Status</th>
+                            <th>Actions</th>
+                        </tr>
+                        {% endif %}
+                    </thead>
+                    <tbody>
+                        {% for user,email in users_list %}
+                        <tr>
+                            <td>{{user.user_id}}</td>
+                            <td>{{user.username}}</td>
+                            <td>{{email}}</td>
+                            <td>{{user.role}}</td>
+                            {% if user.status=='active' %}
+                            <td><span class="status active">{{user.status}}</span></td>
+                            {% else %}
+                            <td><span class="status flagged">{{user.status}}</span></td>
+                            {% endif %}
+                            <td>
+                                {% if user.status == 'flagged' %}
+                                <a href="{{ url_for('unflag', id=user.user_id) }}" class="btn unflag-button">Unflag</a>
+                                <a href="{{ url_for('flag_delete', id=user.user_id) }}" class="btn delete">Delete</a>
+                                {% else %}
+                                <a href="{{ url_for('flag', id=user.user_id) }}" class="btn flag">Flag</a>
+                                {% endif %}
+                                <a href="{{ url_for('user_detail', id=user.user_id) }}" class="btn view">View</a>
+                            </td>
+            
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </section>
+            <section>
+                <dialog id="dialogBox">
+                    <div>
+                        <p>Ad Name : Sample Name</p>
+                    </div>
+                    <div>
+                        <p>Description: Sample Description</p>
+                    </div>
+                    <div>
+                        <p>Term : Sample Term</p>
+                    </div>
+                    <div>
+                        <p>Payments : Rs.2631</p>
+                    </div>
+                    <div>
+                        <p>Influencer : <a href="#">info01</a></p>
+                    </div>
+                    <div>
+                        <button onclick="document.getElementById('dialogBox').close()">Close</button>
+                    </div>
+                  </dialog>
+            </section>
+    </div>
+    </div>
+</body>
+</html>

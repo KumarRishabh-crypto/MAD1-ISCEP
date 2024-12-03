@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard</title>
+    <link rel="stylesheet" href="/static/stylead_dashboard.css">
+    <script src="https://kit.fontawesome.com/b99e675b6e.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <div class="sidebar">
+        <h1>InfluenceSync
+              Admin</h1>
+        <ul>
+            <li><a href="{{url_for('admin_dashboard')}}"><i class="fas fa-home"></i>Profile</a></li>
+            <li><a href="{{url_for('admin_manage')}}"><i class="fas fa-address-card"></i>Manage users</a></li>
+            <li><a href="{{url_for('admin_campaign')}}"><i class="fas fa-clipboard"></i>Campaigns</a></li>
+            <li><a href="/logout" class="logout"><i class="fas fa-lock"></i>Logout</a></li>
+        </ul>
+    </div>
+    <div class="main-content">
+        <header>
+            <h2>Welcome, ADMIN!
+            </h2>
+            <section class="stats">
+                <div class="stat-box">
+                    <p>Total Users</p>
+                    <h3 id="total">{{total_user}}</h3>
+                </div>
+                <div class="stat-box">
+                    <p>Active Users</p>
+                    <h3>{{active}}</h3>
+                </div>
+                <div class="stat-box">
+                    <p>Flagged Users</p>
+                    <h3 id="flag">{{flag}}</h3>
+                </div>
+                <div class="stat-box">
+                    <p>Influencers</p>
+                    <h3 id="influ">{{countinflu}}</h3>
+                </div>
+                <div class="stat-box">
+                    <p>Sponsors</p>
+                    <h3 id="spon">{{countspon}}</h3>
+                </div>
+                <div class="stat-box">
+                    <p>Infl/Spon. Ratio</p>
+                    <h3>{{countinflu/countspon}}</h3>
+                </div>
+                <h3 id="camp" style="display: none;">{{total_camp}}</h3>
+                <h3 id="active_camp" style="display: none;">{{campaign}}</h3>
+            </section>
+            <section class="charts">
+                <div class="chart-container">
+                    <canvas id="pieChart"></canvas>
+                </div>
+                <div class="chart-container">
+                    <canvas id="barChart"></canvas>
+                </div>
+            </section>
+    </div>
+    </div>
+    <script src="/static/script.js">
+    </script>
+</body>
+</html>

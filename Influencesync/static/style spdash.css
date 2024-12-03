@@ -1,0 +1,269 @@
+@import url('https://fonts.googleapis.com/css?family=Josefin+Sans&display=swap');
+
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  list-style: none;
+  text-decoration: none;
+  font-family: 'Josefin Sans', sans-serif;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    margin: 0;
+    padding: 0;
+}
+
+.sidebar{
+    width: 250px;
+    height: 100%;
+    background: #4b4276;
+    padding: 30px 0px;
+    position: fixed;
+}
+  
+.sidebar h1{
+    color: #fff;
+    text-transform: uppercase;
+    text-align: center;
+    margin-bottom: 30px;
+    font-size: 26px;
+}
+  
+.sidebar ul li{
+    padding: 15px;
+    border-bottom: 1px solid #bdb8d7;
+    border-bottom: 1px solid rgba(0,0,0,0.05);
+    border-top: 1px solid rgba(255,255,255,0.05);
+}    
+  
+.sidebar ul li a{
+    color: #bdb8d7;
+    display: block;
+}
+  
+.sidebar ul li a .fas{
+    width: 25px;
+}
+  
+.sidebar ul li:hover{
+    background-color: #594f8d;
+}
+      
+.sidebar ul li:hover a{
+    color: #fff;
+}
+
+.main-content {
+    margin-left: 250px;
+    padding: 20px;
+    width: 1000px;
+}
+
+.header {
+    margin-bottom: 20px;
+}
+
+.stats {
+    display: flex;
+    justify-content: space-between;
+}
+
+.stat {
+    background-color: #feecec;
+    padding: 20px;
+    border-radius: 5px;
+    text-align: center;
+    flex: 1;
+    margin: 5px;
+}
+
+.campaigns,
+.requests,
+.trending {
+    margin-top: 20px;
+}
+
+.campaigns .campaign,
+.requests .request,
+.trending .influencer {
+    background-color: #dffcff;
+    padding: 15px;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.campaign .progress-bar {
+    background-color: #ddd;
+    border-radius: 5px;
+    overflow: hidden;
+    width: 100%;
+    height: 20px;
+    margin-top: 5px;
+}
+
+.campaign .progress-bar .progress {
+    background-color: green;
+    height: 100%;
+}
+
+.requests .request img,
+.trending .influencer img {
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    margin-right: 10px;
+}
+
+.requests .request p,
+.trending .influencer p {
+    flex: 1;
+}
+
+.requests .request button,
+.trending .influencer button {
+    padding: 10px;
+    background-color: #007BFF;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.requests .request button:hover,
+.trending .influencer button:hover {
+    background-color: #0056b3;
+}
+.container {
+    margin: 20px;
+}
+
+.container h1 {
+    font-size: 2em;
+    margin-bottom: 20px;
+}
+
+.campaign {
+    background-color: rgb(237, 244, 255);
+    border: 1px solid #000000;
+    padding: 20px;
+    margin-bottom: 20px;
+    border-radius: 5px;
+}
+
+.campaign h2 {
+    font-size: 1.5em;
+    margin: 0;
+}
+
+.campaign p {
+    margin: 10px 0;
+}
+
+.buttons {
+    margin-top: 10px;
+}
+
+.buttons a {
+    display: inline-block;
+    padding: 10px 20px;
+    margin-right: 10px;
+    margin-bottom: 10px;
+    color: white;
+    text-decoration: none;
+    background-color: #007BFF;
+    border: none;
+    border-radius: 5px;
+    box-shadow: 0 5px #0056b3;
+    transition: all 0.3s ease;
+    text-align: center;
+}
+
+.buttons a:nth-child(2){
+    background-color: #cc2d3d;
+    box-shadow: 0 5px #540600;
+}
+.buttons a:nth-child(2):hover{
+    background-color: #e80018;
+    box-shadow: 0 5px #540600;;
+}
+
+.buttons a:nth-child(3){
+    background-color: #008e1f;
+    box-shadow: 0 5px #004215;
+}
+.buttons a:nth-child(3):hover{
+    background-color: #008e1f;
+    box-shadow: 0 5px #004215;
+}
+
+.buttons a:hover {
+    background-color: #0056b3;
+    box-shadow: 0 3px #003f7f;
+    transform: translateY(2px);
+}
+
+.buttons a:active {
+    box-shadow: 0 1px #003f7f;
+    transform: translateY(4px);
+}
+
+/* Additional colors for different buttons */
+.buttons a.update {
+    background-color: #28a745;
+    box-shadow: 0 5px #1e7e34;
+}
+
+.buttons a.update:hover {
+    background-color: #1e7e34;
+    box-shadow: 0 3px #155724;
+    transform: translateY(2px);
+}
+
+.buttons a.update:active {
+    box-shadow: 0 1px #155724;
+    transform: translateY(4px);
+}
+
+.buttons a.delete {
+    background-color: #dc3545;
+    box-shadow: 0 5px #b21f2d;
+}
+
+.buttons a.delete:hover {
+    background-color: #b21f2d;
+    box-shadow: 0 3px #8a1c24;
+    transform: translateY(2px);
+}
+
+.buttons a.delete:active {
+    box-shadow: 0 1px #8a1c24;
+    transform: translateY(4px);
+}
+
+.campaigns {
+    background-color: #ebfeff;
+    padding: 20px;
+    border-radius: 10px;
+    margin-top: 20px;
+}
+
+.campaigns table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.campaigns th, .campaigns td {
+    padding: 10px;
+    border: 1px solid #ddd;
+    text-align: left;
+}
+
+.campaigns th {
+    background-color: #f1f1c8;
+}

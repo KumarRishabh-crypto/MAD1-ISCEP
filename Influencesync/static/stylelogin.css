@@ -1,0 +1,166 @@
+body, html {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-image: url("/static/images/bg4.jpg");
+    background-size: cover;
+}
+
+.container {
+    display: flex;
+    width: 80%;
+    max-width: 1200px;
+    background: rgba(255, 255, 255, 0.8);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.left-section, .right-section {
+    padding: 40px;
+    width: 50%;
+}
+
+.left-section {
+    background-image: url('/static/images/best-student-laptop-of-2020.jpg');
+    background-size: cover;
+    color: white;
+}
+
+.left-section h1 {
+    font-size: 3em;
+    margin-bottom: 20px;
+}
+
+.left-section p {
+    font-size: 1.2em;
+    margin-bottom: 20px;
+}
+
+.know-more {
+    display: inline-block;
+    padding: 10px 20px;
+    margin-top: 20px;
+    background: #ff4500;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+    transition: transform 0.2s;
+}
+
+.know-more:hover {
+    transform: scale(1.05);
+}
+
+.social-links a {
+    color: white;
+    margin-right: 15px;
+    text-decoration: none;
+    font-size: 1.2em;
+}
+
+.right-section h2 {
+    margin-bottom: 20px;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+input[type="text"], input[type="password"] {
+    background: rgba(255, 255, 255, 0.1);
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+button[type="submit"] {
+    padding: 10px;
+    background: #ff4500;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s;
+}
+
+button[type="submit"]:hover {
+    transform: scale(1.05);
+}
+
+.user-role {
+    margin-bottom: 20px;
+    color: #1b1e01fb;
+}
+
+.user-role select {
+    width: 100%;
+    padding: 10px;
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid #ccc;
+    outline: none;
+    color: #000000;
+    border-radius: 5px;
+}
+
+
+.login-link {
+    margin-top: 20px;
+}
+
+.login-link a {
+    color: #ff4500;
+    text-decoration: none;
+}
+
+#denied{
+    color: red;
+    animation: blink 2s forwards;
+}
+@keyframes blink {
+    0% {
+        opacity: 0;
+    }
+    10% {
+        opacity: 1;
+    }
+    20% {
+        opacity: 0;
+    }
+    30% {
+        opacity: 1;
+    }
+    40% {
+        opacity: 0;
+    }
+    50% {
+        opacity: 1;
+    }
+    60% {
+        opacity: 0;
+    }
+    70% {
+        opacity: 1;
+    }
+    80% {
+        opacity: 0;
+    }
+    90% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+        display: none;
+    }
+}
+
+

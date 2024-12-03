@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <script src="https://kit.fontawesome.com/b99e675b6e.js"></script>
+    <link rel="stylesheet" href="/static/stylehp.css">
+</head>
+<body>
+    <div class="sidebar">
+        <h2>InfluenceSync
+            Sponsor
+      </h2>
+        <ul>
+            <li><a href="/sponsor_dashboard"><i class="fas fa-home"></i>Dashboard</a></li>
+            <li><a href="/campaign"><i class="fas fa-clipboard"></i>Campaigns</a></li>
+            <li><a href="/create_campaign"><i class="fas fa-address-card"></i>Create Campaign</a></li>
+            <li><a href="/logout" class="logout"><i class="fas fa-lock"></i>Logout</a></li>
+        </ul>
+    </div>
+
+    <div class="main-content">
+        <div class="form-container">
+            {% if msg =='create' %}
+            <h2>Create Campaign</h2>
+            <form action="/create_campaign" method="post">
+                <div class="form-group">
+                    <label for="name">Campaign Name</label>
+                    <input type="text" id="name" name="name" placeholder="Enter Name">
+                </div>
+                <div class="form-group">
+                    <label for="budget">Budget(Rs.)</label>
+                    <input type="number" id="budget" name="budget" placeholder="Enter Budget">
+                </div>
+                <div class="form-group">
+                    <label for="start-date">Start Date</label>
+                    <input type="date" id="start-date" name="start-date" placeholder="dd-mm-yyyy">
+                </div>
+                <div class="form-group">
+                    <label for="end-date">End Date</label>
+                    <input type="date" id="end-date" name="end-date" placeholder="dd-mm-yyyy">
+                </div>
+                <div class="form-group">
+                    <label for="goals">Goals</label>
+                    <input type="text" id="goals" name="goal" placeholder="Enter Campaign Goals">
+                </div>
+                <div class="form-group">
+                    <label for="category">Category</label>
+                    <input type="text" id="category" name="category" placeholder="Enter Category">
+                </div>
+                <div class="form-group">
+                    <label for="bio">Bio</label>
+                    <input type="text" id="bio" name="bio" placeholder="Enter Bio">
+                </div>
+                <button type="submit" class="submit-btn">Create Campaign</button>
+            </form>
+            {% elif msg == 'update' %}
+            <h2>Update Campaign</h2>
+            <form action="{{url_for('update_campaign' , camp_id=campaign.campain_id)}}" method="post">
+                <div class="form-group">
+                    <label for="name">Campaign Name</label>
+                    <input type="text" id="name" name="name" value="{{campaign.name}}" placeholder="Enter Name">
+                </div>
+                <div class="form-group">
+                    <label for="budget">Budget</label>
+                    <input type="text" id="budget" name="budget" value="{{campaign.budget}}" placeholder="Enter Budget">
+                </div>
+                <div class="form-group">
+                    <label for="start-date">Start Date</label>
+                    <input type="date" id="start-date" name="start-date" value="{{campaign.sdate}}" placeholder="dd-mm-yyyy">
+                </div>
+                <div class="form-group">
+                    <label for="end-date">End Date</label>
+                    <input type="date" id="end-date" name="end-date" value="{{campaign.edate}}" placeholder="dd-mm-yyyy">
+                </div>
+                <div class="form-group">
+                    <label for="goals">Goals</label>
+                    <input type="text" id="goals" name="goal" value="{{campaign.goal}}" placeholder="Enter Campaign Goals">
+                </div>
+                <div class="form-group">
+                    <label for="category">Category</label>
+                    <input type="text" id="category" name="category" value="{{campaign.category}}" placeholder="Enter Category">
+                </div>
+                <div class="form-group">
+                    <label for="bio">Bio</label>
+                    <input type="text" id="bio" name="bio" value="{{campaign.bio}}" placeholder="Enter Bio">
+                </div>
+                <button type="submit" class="submit-btn">Update Campaign</button>
+            </form>
+            {% endif %}
+        </div>
+    </div>
+</body>
+</html>

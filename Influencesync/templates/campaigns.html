@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Campaigns</title>
+    <script src="https://kit.fontawesome.com/b99e675b6e.js"></script>
+    <link rel="stylesheet" href="/static/style spdash.css">
+</head>
+<body>
+    <div class="sidebar">
+        <h1>InfluenceSync
+            Sponsor
+      </h1>
+        <ul>
+            <li><a href="/sponsor_dashboard"><i class="fas fa-home"></i>Dashboard</a></li>
+            <li><a href="/campaign"><i class="fas fa-clipboard"></i>Campaigns</a></li>
+            <li><a href="/create_campaign"><i class="fas fa-address-card"></i>Create Campaign</a></li>
+            <li><a href="/logout" class="logout"><i class="fas fa-lock"></i>Logout</a></li>
+        </ul>
+    </div>
+    <div class="main-content">
+        <header>
+            <h2>Campaigns:</h2>
+            
+    <div class="container">
+        <h1>My Campaigns</h1>
+        {% if all_camp != [] %}
+        {% for camp in all_camp %}
+        <div class="campaign">
+            <h2>{{camp.name}}</h2>
+            <p>{{camp.bio}}</p>
+            <p>{{camp.budget}}</p>
+            <p>{{camp.goal}}</p>
+            <p>Ends on {{camp.edate}}</p>
+            <div class="buttons">
+                <a href="{{url_for('update_campaign' , camp_id=camp.campain_id)}}">Update</a>
+                <a href="{{url_for('delete_campaign' , camp_id=camp.campain_id)}}">Delete</a>
+                <a href="{{url_for('search_influencer', camp_id=camp.campain_id)}}">Find Influencer</a>
+            </div>
+        </div>
+        {% endfor %}
+        {% else %}
+        <h4>You Don't have any Campaign</h4>
+        {% endif %}
+
+    </div>
+</body>
+</html>
+    </div>
+</body>
+</html>

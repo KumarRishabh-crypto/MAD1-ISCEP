@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Signup Page</title>
+    <link rel="stylesheet" href="/static/style1.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <div class="left">
+            <div class="image-container">
+                <img src="/static/images/backImg.jpg" alt="Signup Image">
+                <div class="text-overlay">
+                    <h1>Complete miles of journey with one step</h1>
+                    <p>Let's get started</p>
+                </div>
+            </div>
+        </div>
+        <div class="right">
+            <form action="/sponsor_registration" method="post" class="signup-form">
+                <h2>Signup</h2>
+                <label for="name">
+                    <i class="fas fa-user"></i>
+                    <input type="text" name='username' placeholder="Username" required>
+                </label>
+                <label for="email">
+                    <i class="fas fa-envelope"></i>
+                    <input type="email" id="email" name="email" placeholder="Enter your email">
+                </label>
+                <label for ="brand-name">
+                    <i class="fas fa-briefcase"></i>
+                    <input type="text" name="brand-name" placeholder="Brand Name">
+                </label>
+                <label for="password">
+                    <i class="fas fa-lock"></i>
+                    <input type="password" id="password" name="password" placeholder="Enter your password">
+                </label>
+
+                <label for="Industry">
+                    <i class="fa fa-industry"></i>
+                <input type="text" name="industry" placeholder="Industry">
+                <input type="text" name="role" value="sponsor" hidden>
+                </label>
+                <button type="submit">Submit</button>
+                <p>Already have an account? <a href="/login">Login now</a></p>
+            </form>
+        </div>
+        <p>{{msg}}</p>
+    </div>
+</body>
+</html>
